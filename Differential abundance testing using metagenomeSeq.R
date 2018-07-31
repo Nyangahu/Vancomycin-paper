@@ -1,4 +1,4 @@
-#Load libraries
+#Load R packages (To avoid errors when sourcing the custom functions doc, load all packages)
 library(phyloseq)
 library(ape)
 library(BAT)
@@ -34,7 +34,7 @@ library(Rcpp)
 library(MASS)
 library(fifer)
 library(ggtree)
-library("randomForest")
+library(randomForest)
 #Importing data (OTU table generated in QIIME, now in the biom format)
 phy <- import_biom("otus_table.tax.biom", verbose = TRUE)
 #Data clean up
@@ -68,7 +68,7 @@ source( "/Users/dnyang/Desktop/R 2017/Vanco 1/microbiome_custom_functions.R")
 outDir= paste0(getwd(),"/")
 #Merge at lowest taxonomic annotation
 phy.new <- tax_glom.kv(physeq = D)
-#Firt identify sample names for subsets:
+#First identify sample names for subsets:
 colnames(sample_data(phy.new))
 head(sample_data(phy.new))
 u=as.character(unlist(unique(sample_data(phy.new)[,"Description"])))#convert to character string for matching
