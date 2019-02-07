@@ -87,7 +87,7 @@ physeq.1 <- prune_samples(sample_names(phy.new)%in% IDs.1,phy.new)
 head(sample_data(physeq.1))
 nsamples(physeq.1)#19
 (sample_data(physeq.1)[,"Description"])#Inspect the description column
-#now we do the differential abundance testing using metagenomeSeq (The super.fitZig.kv function is included in the custom functions file)
+#now do the differential abundance testing using metagenomeSeq (The super.fitZig.kv function is included in the custom functions file)
 super.fitZig.kv(physeq=physeq.1,factor = "Description",outDir = outDir,FileName =paste0("1_25FC_0.2_pc_vs_pn 2"),
                 heatmap.descriptor=c("tax_annot"), main=paste0("pc vs pn "), subt=c("subt = FDR < 0.05,|coeff| >= 1.25, >20%+ in either group"), 
                 ordered=TRUE, p=0.05,FC = 1.25,colours=NULL, perc=0.2)
